@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Menu | Nostalgia Lagos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F7EFE3;--ink:#1B1028;--mut:#6A5A74;--ln:rgba(27,16,40,.15);--cd:#fff;--amb:#A85A10;--rose:#B52B63;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E0A1C;--ink:#F6E9D7;--mut:#A798B5;--ln:rgba(246,233,215,.16);--cd:#181029;--amb:#FFB45E;--rose:#FF5D8F}}
+:root[data-theme="dark"]{--bg:#0E0A1C;--ink:#F6E9D7;--mut:#A798B5;--ln:rgba(246,233,215,.16);--cd:#181029;--amb:#FFB45E;--rose:#FF5D8F}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.65 Jost,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;letter-spacing:-.01em;line-height:1;margin:0}
+h2{font-size:clamp(2.6rem,8vw,5rem)}h3{font-size:1.7rem}
+em{font-style:italic}a{color:inherit}p{margin:0}
+:focus-visible{outline:3px solid var(--amb);outline-offset:3px}
+.note{background:#FFB45E;color:#1B1028;font-size:.82rem;font-weight:500;text-align:center;padding:.5rem 1rem}
+.pad{padding-left:clamp(1.25rem,5vw,4rem);padding-right:clamp(1.25rem,5vw,4rem)}
+.w{max-width:70rem;margin:0 auto}
+section{padding-top:clamp(4rem,10vw,7.5rem)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:30;display:flex;align-items:center;justify-content:space-between;padding:calc(.8rem + env(safe-area-inset-top,0px)) clamp(1.25rem,5vw,4rem) .8rem;background:rgba(14,10,28,.45);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:#F6E9D7;border-bottom:1px solid rgba(246,233,215,.12)}
+.brand{font:italic 600 1.7rem "Cormorant Garamond",serif;text-decoration:none}
+.nav nav{display:flex;gap:1.6rem;font-weight:500;font-size:.92rem;letter-spacing:.04em}
+.nav nav a{text-decoration:none;opacity:.85}.nav nav a:hover{opacity:1}
+@media (max-width:760px){.nav nav{display:none}}
+.btn{display:inline-block;background:#FFB45E;color:#1B1028;font:500 .95rem Jost,sans-serif;letter-spacing:.04em;text-decoration:none;padding:.75rem 1.5rem;border-radius:999px;border:0;cursor:pointer;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px);background:#FFC47E}
+.btn.o{background:transparent;color:inherit;border:1px solid currentColor}
+.hero{position:relative;overflow:hidden;min-height:100svh;color:#F6E9D7;background:linear-gradient(180deg,#140A2E 0%,#3B1654 35%,#B53A78 68%,#FF9F5A 100%);padding-top:clamp(7rem,22vh,12rem)}
+.star{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;animation:tw 3s ease-in-out infinite}
+@keyframes tw{50%{opacity:.15}}
+.sun{position:absolute;left:50%;bottom:12%;width:min(75vw,540px);aspect-ratio:1;margin-left:calc(min(75vw,540px)/-2);border-radius:50%;background:radial-gradient(circle,#FFE9B0 0%,#FFC36A 50%,rgba(255,195,106,0) 72%);animation:rise 2.4s ease-out both}
+@keyframes rise{from{transform:translateY(40%);opacity:.2}to{transform:none;opacity:1}}
+.sk{position:absolute;left:0;bottom:0;width:100%;display:block}
+.sk path{vertical-align:bottom}
+.s1{height:34%;fill:#3A1A55}.s2{height:26%;fill:#220F3B}.s3{height:18%;fill:#0E0A1C}
+.hc{position:relative;z-index:3}
+.hc .tag{font-size:.82rem;letter-spacing:.22em;text-transform:uppercase;opacity:.9}
+.hc h1{font-size:clamp(4.6rem,20vw,13rem);font-style:italic;margin:.4rem 0 1.2rem;text-shadow:0 4px 40px rgba(20,10,46,.5)}
+.hc p{max-width:26rem;font-size:1.15rem;margin-bottom:1.8rem}
+.row{display:flex;flex-wrap:wrap;gap:.7rem}
+.two{display:grid;gap:3rem;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));align-items:center}
+.lead{color:var(--mut);margin-top:1.4rem;max-width:30rem;font-size:1.12rem}
+.facts div{display:flex;justify-content:space-between;gap:1rem;padding:1.1rem 0;border-top:1px solid var(--ln)}
+.facts div:last-child{border-bottom:1px solid var(--ln)}
+.facts b{font:500 1.6rem "Cormorant Garamond",serif}.facts span{color:var(--mut);text-align:right}
+.tabs{display:flex;gap:.5rem;margin:2rem 0 1.5rem;flex-wrap:wrap}
+.tabs button{font:500 .95rem Jost,sans-serif;letter-spacing:.04em;padding:.6rem 1.3rem;border-radius:999px;border:1px solid var(--ln);background:transparent;color:var(--ink);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.ml{display:grid;gap:0 3rem;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr))}
+.ml div{padding:1.1rem 0;border-top:1px solid var(--ln)}
+.ml b{display:block;font:500 1.55rem "Cormorant Garamond",serif}.ml span{color:var(--mut);font-size:.95rem}
+[hidden]{display:none!important}
+.smp{color:var(--mut);font-size:.85rem;margin-top:1.4rem}
+.roof{position:relative;overflow:hidden;margin-top:clamp(4rem,10vw,7.5rem);padding-bottom:clamp(8rem,20vw,14rem);background:linear-gradient(180deg,#0E0A1C,#2A1244 70%,#4A1C5E);color:#F6E9D7}
+.roof .w{position:relative;z-index:2;padding-top:clamp(4rem,10vw,7rem)}
+.roof .lead{color:#CDBBDD}
+.rf{display:grid;gap:2rem;margin-top:2.5rem;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr))}
+.rf h3{color:#FFB45E}.rf p{color:#CDBBDD;margin-top:.4rem;font-size:.98rem}
+.roof .sk{height:30%;fill:#0E0A1C}
+.gal{display:grid;gap:.8rem;margin-top:2.5rem;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));grid-auto-rows:9rem}
+.gal div{border-radius:18px;padding:1rem;display:flex;align-items:flex-end;color:#F6E9D7;font-weight:500;font-size:.92rem}
+.g1{grid-row:span 2;grid-column:span 2;background:linear-gradient(160deg,#3B1654,#FF7A59)}.g2{background:linear-gradient(200deg,#220F3B,#B53A78)}.g3{background:linear-gradient(120deg,#0E0A1C,#8A5A1A)}
+.g4{grid-column:span 2;background:linear-gradient(90deg,#B53A78,#FFB45E)}.g5{background:linear-gradient(140deg,#140A2E,#5B2A7A)}.g6{background:linear-gradient(220deg,#FF9F5A,#3B1654)}
+.ev a{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.5rem 0;border-top:1px solid var(--ln);text-decoration:none;transition:padding .25s}
+.ev a:last-child{border-bottom:1px solid var(--ln)}.ev a:hover{padding-left:1rem}
+.ev h3{font-size:clamp(1.8rem,5vw,3rem)}.ev p{color:var(--mut);max-width:20rem;text-align:right;font-size:.95rem}
+@media (max-width:620px){.ev a{flex-direction:column;align-items:flex-start}.ev p{text-align:left}}
+.qs{display:grid;gap:1.5rem;margin-top:2.5rem;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr))}
+.qs blockquote{margin:0;padding:1.8rem;background:var(--cd);border:1px solid var(--ln);border-radius:22px}
+.qs blockquote:nth-child(2){margin-top:1.5rem}
+.qs q{display:block;font:italic 500 1.6rem/1.2 "Cormorant Garamond",serif;quotes:none}
+.qs cite{display:block;margin-top:1.2rem;font-style:normal;color:var(--mut);font-size:.9rem}
+.res{display:grid;gap:3rem;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));align-items:start}
+.info p{color:var(--mut);margin-top:1rem}.info b{color:var(--ink);font-weight:500}
+form{background:var(--cd);border:1px solid var(--ln);border-radius:26px;padding:1.6rem}
+label{display:block;font-weight:500;margin:1rem 0 .3rem;font-size:.9rem}label:first-child{margin-top:0}
+input,select,textarea{width:100%;font:inherit;font-size:1rem;color:var(--ink);background:transparent;border:1px solid var(--ln);border-radius:12px;padding:.75rem .9rem}
+option{color:#1B1028}
+.fg{display:grid;gap:0 1rem;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr))}
+form .btn{width:100%;margin-top:1.4rem;background:var(--ink);color:var(--bg)}
+.paynote{margin-top:1.2rem;padding:.8rem 1rem;border-radius:12px;border:1px dashed var(--ln);font-size:.92rem;color:var(--mut)}
+#sent{margin-top:1rem;padding:1rem;border-radius:12px;border:1px solid var(--ln);background:var(--cd)}
+footer{margin-top:clamp(4rem,10vw,7rem);background:#0E0A1C;color:#F6E9D7;padding-top:3rem;padding-bottom:2rem}
+.wm{font:italic 500 clamp(3.6rem,17vw,12rem)/.9 "Cormorant Garamond",serif;color:transparent;-webkit-text-stroke:1px rgba(246,233,215,.35)}
+.fr{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:1.8rem;font-size:.9rem;color:#A798B5}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.star,.sun{animation:none}html{scroll-behavior:auto}}
+.mini{display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;background:var(--cd);border:1px solid var(--ln);border-radius:30px;padding:clamp(1.8rem,5vw,3.2rem)}
+.mini h2{font-size:clamp(2.2rem,6vw,3.6rem)}.mini .lead{margin-top:.8rem}
+.btn.big{background:var(--ink);color:var(--bg);padding:1rem 2rem;font-size:1.05rem}.btn.big:hover{background:var(--ink)}
+
+.nav{background:#0E0A1C}.btn.o{color:#F6E9D7}
+.mpage{padding-top:clamp(7rem,16vw,9rem)}
+.mpage .lead{margin-top:1rem}
+.srch{margin-top:2rem;position:relative}
+.srch input{padding:.95rem 3rem .95rem 1.2rem;border-radius:999px;background:var(--cd);font-size:1.05rem}
+.srch button{position:absolute;right:.5rem;top:50%;translate:0 -50%;border:0;background:var(--ink);color:var(--bg);width:2.1rem;height:2.1rem;border-radius:50%;cursor:pointer;font-size:1.1rem;line-height:1}
+.chips{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+.chip{font:500 .92rem Jost,sans-serif;letter-spacing:.03em;padding:.55rem 1.15rem;border-radius:999px;border:1px solid var(--ln);background:transparent;color:var(--ink);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chips.sub .chip{font-size:.85rem;padding:.4rem .9rem}
+.cnt{color:var(--mut);font-size:.9rem;margin:1.6rem 0 1rem}
+.ph{aspect-ratio:4/3;border-radius:18px;border:2px dashed var(--ln);background:linear-gradient(135deg,rgba(168,90,16,.18),rgba(181,43,99,.18));display:grid;place-items:center;overflow:hidden}
+.ph::after{content:"Photo";color:var(--mut);font-size:.8rem;letter-spacing:.18em;text-transform:uppercase}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}.ph:has(img)::after{content:none}
+.mg{display:grid;gap:1.8rem 1.2rem;grid-template-columns:repeat(auto-fill,minmax(14rem,1fr));padding-bottom:1rem}
+.mg .it b{display:block;font:500 1.5rem/1.1 "Cormorant Garamond",serif;margin-top:.8rem}
+.mg .it span{display:block;color:var(--mut);font-size:.95rem;margin-top:.25rem}
+.mg .it small{display:inline-block;margin-top:.5rem;color:var(--amb);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
+.mg .it .pr{display:block;font:600 1.15rem Jost,sans-serif;font-style:normal;color:var(--amb);margin-top:.5rem}
+.none{grid-column:1/-1;text-align:center;color:var(--mut);padding:3rem 1rem}
+</style>
+</head>
+<body>
+<header class="nav"><a class="brand" href="index.html">Nostalgia</a><div class="row"><a class="btn o" href="index.html">&larr; Home</a><a class="btn" href="reserve.html">Reserve</a></div></header>
+<main class="pad mpage"><div class="w">
+  <h2>Our <em>menu</em></h2>
+  <p class="lead">Search for something, or browse by type.</p>
+  <div class="srch"><label for="q" class="sr" style="position:absolute;left:-9999px">Search the menu</label><input id="q" type="search" placeholder="Search drinks and food" autocomplete="off"><button type="button" id="clr" aria-label="Clear search" hidden>&times;</button></div>
+  <div class="chips" id="main" role="group" aria-label="Type"><button class="chip" data-v="" aria-pressed="true">All</button><button class="chip" data-v="Drinks" aria-pressed="false">Drinks</button><button class="chip" data-v="Food" aria-pressed="false">Food</button></div>
+  <div class="chips sub" id="sub" role="group" aria-label="Category" hidden></div>
+  <p class="cnt" id="cnt" role="status"></p>
+  <div class="mg" id="grid"></div>
+  <p class="smp">Sample menu. Items and prices to be confirmed with the owner.</p>
+</div></main>
+<footer class="pad"><div class="w"><div class="wm" aria-hidden="true">Nostalgia</div><div class="fr"><span>88 Hakeem Dickson Road, Lekki Phase 1, Lagos</span><span><a href="https://www.instagram.com/nostalgia.lagos" target="_blank" rel="noopener">@nostalgia.lagos</a></span><span>Concept design. Not the official website.</span></div></div></footer>
+<script>
+/* Add or edit menu items here. g = Drinks or Food, c = category, n = name, d = description, x = price in naira.
+   To add a photo to an item, add  p:'images/old-fashioned.jpg'  to that line. */
+var MENU=[{"g": "Drinks", "c": "Cocktails", "n": "Old Fashioned", "d": "Whiskey, bitters, orange peel", "x": 6500}, {"g": "Drinks", "c": "Cocktails", "n": "Espresso Martini", "d": "Vodka, coffee liqueur, fresh espresso", "x": 7000}, {"g": "Drinks", "c": "Cocktails", "n": "Passion Fruit Spritz", "d": "Sparkling wine, passion fruit, mint", "x": 6000}, {"g": "Drinks", "c": "Cocktails", "n": "Mojito", "d": "White rum, lime, mint, soda", "x": 6000}, {"g": "Drinks", "c": "Cocktails", "n": "Tequila Sunrise", "d": "Tequila, orange juice, grenadine", "x": 6000}, {"g": "Drinks", "c": "Zero-proof", "n": "Zero-proof Garden", "d": "Cucumber, lime, mint, soda", "x": 3500}, {"g": "Drinks", "c": "Zero-proof", "n": "Virgin Colada", "d": "Pineapple, coconut cream, lime", "x": 4000}, {"g": "Drinks", "c": "Zero-proof", "n": "Chapman", "d": "Citrus, grenadine, bitters, cucumber", "x": 3500}, {"g": "Drinks", "c": "Wine and beer", "n": "House red wine", "d": "Smooth and medium-bodied, by the glass or bottle", "x": 35000}, {"g": "Drinks", "c": "Wine and beer", "n": "House white wine", "d": "Crisp and chilled, by the glass or bottle", "x": 35000}, {"g": "Drinks", "c": "Wine and beer", "n": "Champagne", "d": "Bottle service for celebrations", "x": 120000}, {"g": "Drinks", "c": "Wine and beer", "n": "Local and imported beers", "d": "Ask your server for the cold selection", "x": 2500}, {"g": "Food", "c": "Starters", "n": "Small chops", "d": "Spring rolls, samosas, puff-puff, peppered gizzard", "x": 8000}, {"g": "Food", "c": "Starters", "n": "Peppered snail", "d": "Spicy tomato and pepper sauce", "x": 9500}, {"g": "Food", "c": "Starters", "n": "Chicken wings", "d": "Honey glaze or yaji dust", "x": 8500}, {"g": "Food", "c": "Plates", "n": "Grilled sea bass", "d": "Lemon butter, seasonal vegetables", "x": 18500}, {"g": "Food", "c": "Plates", "n": "Lamb kofta", "d": "Hummus, flatbread, pickled onions", "x": 16000}, {"g": "Food", "c": "Plates", "n": "Creamy mushroom pasta", "d": "Parmesan, herbs, garlic bread", "x": 14000}, {"g": "Food", "c": "Plates", "n": "Suya-spiced chicken skewers", "d": "Onions, tomato, yaji", "x": 12000}, {"g": "Food", "c": "Platters", "n": "Mixed grill platter", "d": "Beef, chicken, and sausage with dips", "x": 35000}, {"g": "Food", "c": "Platters", "n": "Seafood sharing board", "d": "Prawns, calamari, and sauces", "x": 48000}, {"g": "Food", "c": "Platters", "n": "Cheese and charcuterie", "d": "Cured meats, cheeses, fruit", "x": 38000}, {"g": "Food", "c": "Platters", "n": "Small chops platter", "d": "A mix of party favourites", "x": 30000}, {"g": "Food", "c": "Desserts", "n": "Chocolate fondant", "d": "Warm centre, vanilla ice cream", "x": 7500}, {"g": "Food", "c": "Desserts", "n": "Cheesecake", "d": "Passion fruit compote", "x": 7000}];
+var grp='',cat='',qry='';
+function naira(n){return '\u20a6'+Number(n).toLocaleString('en-NG')}
+var $=function(i){return document.getElementById(i)};
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function cats(){var o=[];MENU.forEach(function(m){if((!grp||m.g===grp)&&o.indexOf(m.c)<0)o.push(m.c)});return o}
+function drawSub(){
+  var el=$('sub');if(!grp){el.hidden=true;el.innerHTML='';return}
+  el.hidden=false;
+  el.innerHTML='<button class="chip" data-v="" aria-pressed="'+(cat===''?'true':'false')+'">All '+esc(grp.toLowerCase())+'</button>'+cats().map(function(c){return '<button class="chip" data-v="'+esc(c)+'" aria-pressed="'+(cat===c?'true':'false')+'">'+esc(c)+'</button>'}).join('');
+}
+function render(){
+  var q=qry.toLowerCase().trim();
+  var list=MENU.filter(function(m){
+    if(grp&&m.g!==grp)return false;if(cat&&m.c!==cat)return false;
+    return !q||(m.n+' '+m.d+' '+m.c+' '+m.g+' '+(m.x||'')).toLowerCase().indexOf(q)>=0;
+  });
+  $('cnt').textContent=list.length+(list.length===1?' item':' items');
+  $('grid').innerHTML=list.length?list.map(function(m){
+    return '<div class="it"><div class="ph" role="img" aria-label="Photo of '+esc(m.n)+' coming soon">'+(m.p?'<img src="'+esc(m.p)+'" alt="'+esc(m.n)+'" loading="lazy">':'')+'</div><b>'+esc(m.n)+'</b><span>'+esc(m.d)+'</span><em class="pr">'+(m.x?naira(m.x):'')+'</em><small>'+esc(m.c)+'</small></div>';
+  }).join(''):'<p class="none">Nothing matches that. Try a different word or clear the filters.</p>';
+}
+$('q').addEventListener('input',function(){qry=this.value;$('clr').hidden=!qry;render()});
+$('clr').addEventListener('click',function(){$('q').value='';qry='';this.hidden=true;$('q').focus();render()});
+$('main').addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;
+  [].forEach.call(this.children,function(c){c.setAttribute('aria-pressed',c===b?'true':'false')});
+  grp=b.dataset.v;cat='';drawSub();render()});
+$('sub').addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;cat=b.dataset.v;drawSub();render()});
+if(location.hash==='#drinks'||location.hash==='#food'){grp=location.hash==='#drinks'?'Drinks':'Food';[].forEach.call($('main').children,function(c){c.setAttribute('aria-pressed',c.dataset.v===grp?'true':'false')});drawSub()}
+render();
+</script>
+</body>
+</html>

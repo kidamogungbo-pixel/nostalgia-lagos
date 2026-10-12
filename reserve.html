@@ -119,7 +119,7 @@ footer{margin-top:clamp(4rem,10vw,7rem);background:#0E0A1C;color:#F6E9D7;padding
 <script>
 document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')});
 /* ===== BOOKING SETTINGS (edit these) ===== */
-var BOOKING={wa:'',key:'',sheet:'',paystackKey:'',policy:''};
+var BOOKING={wa:'',key:'',sheet:'https://script.google.com/macros/s/AKfycby5sUHXb6kTOOmTBSXN2LERl06BulZ_ZI7PkBEgSerRRXLWkIq1XyNYmaBN3r-vFv1_/exec',paystackKey:'',policy:''};
 /* sheet: the Google Apps Script web app address. Bookings are saved in a Google Sheet and appear on the dashboard (admin.html). No monthly limit.
    paystackKey: your Paystack PUBLIC key (pk_test_... or pk_live_...). With it, guests pay a deposit when they book. The amount is set in the Apps Script (DEPOSIT).
    policy: optional line shown under the payment note, e.g. 'Deposits are refundable up to 24 hours before.'

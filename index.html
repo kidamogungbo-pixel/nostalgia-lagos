@@ -3,7 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Nostalgia Lagos | Bar, Lounge and Rooftop</title>
+<title>Nostalgia Lagos | Restaurant, Lounge and Rooftop</title>
+<meta name="description" content="Restaurant, lounge and rooftop in Lekki Phase 1, Lagos. Menu, table booking and celebrations in one place.">
+<meta name="theme-color" content="#140A2E">
+<meta property="og:title" content="Nostalgia Lagos | Restaurant, Lounge and Rooftop">
+<meta property="og:description" content="Menu, table booking and celebrations in one place. Concept design preview.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%87%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
@@ -96,6 +101,7 @@ footer{margin-top:clamp(4rem,10vw,7rem);background:#0E0A1C;color:#F6E9D7;padding
 .fr{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:1.8rem;font-size:.9rem;color:#A798B5}
 .rv{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}.rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.star,.sun{animation:none}html{scroll-behavior:auto}}
+.wab{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:40;background:#25D366;color:#073b1d;font-weight:500;box-shadow:0 8px 24px rgba(0,0,0,.35)}.wab:hover{background:#3AE077}
 .mini{display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;background:var(--cd);border:1px solid var(--ln);border-radius:30px;padding:clamp(1.8rem,5vw,3.2rem)}
 .mini h2{font-size:clamp(2.2rem,6vw,3.6rem)}.mini .lead{margin-top:.8rem}
 .btn.big{background:var(--ink);color:var(--bg);padding:1rem 2rem;font-size:1.05rem}.btn.big:hover{background:var(--ink)}
@@ -103,7 +109,7 @@ footer{margin-top:clamp(4rem,10vw,7rem);background:#0E0A1C;color:#F6E9D7;padding
 </head>
 <body>
 <div class="note">Concept design for Nostalgia Lagos. Menu items, reviews, and details are samples to be confirmed with the owner.</div>
-<header class="nav"><a class="brand" href="#top">Nostalgia</a><nav aria-label="Main"><a href="#about">About</a><a href="#menu">Menu</a><a href="#rooftop">Rooftop</a><a href="#gallery">Gallery</a><a href="#nights">Nights</a></nav><a class="btn" href="reserve.html">Reserve</a></header>
+<header class="nav"><a class="brand" href="#top">Nostalgia</a><nav aria-label="Main"><a href="#about">About</a><a href="#spaces">Spaces</a><a href="#menu">Menu</a><a href="#rooftop">Rooftop</a><a href="#gallery">Gallery</a><a href="#nights">Nights</a></nav><a class="btn" href="reserve.html">Reserve</a></header>
 
 <main id="top">
 <div class="hero pad" id="hero">
@@ -116,7 +122,7 @@ footer{margin-top:clamp(4rem,10vw,7rem);background:#0E0A1C;color:#F6E9D7;padding
   <svg class="sk s2" viewBox="0 0 676 120" preserveAspectRatio="none" aria-hidden="true"><use href="#p2"/></svg>
   <svg class="sk s3" viewBox="0 0 676 120" preserveAspectRatio="none" aria-hidden="true"><use href="#p3"/></svg>
   <div class="hc w">
-    <span class="tag">Bar &middot; Lounge &middot; Rooftop</span>
+    <span class="tag">Restaurant &middot; Lounge &middot; Rooftop</span>
     <h1>Nostalgia</h1>
     <p>Cocktails, good plates, and the Lagos skyline at golden hour. Lekki Phase 1.</p>
     <div class="row"><a class="btn" href="reserve.html">Reserve a table</a><a class="btn o" href="#menu">See the menu</a></div>
@@ -133,13 +139,22 @@ footer{margin-top:clamp(4rem,10vw,7rem);background:#0E0A1C;color:#F6E9D7;padding
   </div>
 </div></section>
 
+<section id="spaces" class="pad"><div class="w">
+  <h2 class="rv">Two spaces, <em>one address</em></h2>
+  <div class="ev rv" style="margin-top:2.5rem">
+    <a href="reserve.html?a=Restaurant"><h3>The Restaurant</h3><p>Sit-down dining from a continental kitchen. Reserve a table.</p></a>
+    <a href="reserve.html?a=Lounge"><h3>The Lounge</h3><p>Cocktails, music, bottle tables and the rooftop. Reserve a table.</p></a>
+  </div>
+</div></section>
+
 <section id="menu" class="pad"><div class="w">
   <h2 class="rv">On the <em>menu</em></h2>
-  <div class="tabs rv" role="tablist" aria-label="Menu"><button role="tab" aria-selected="true" data-t="a">Cocktails</button><button role="tab" aria-selected="false" data-t="b">Plates</button><button role="tab" aria-selected="false" data-t="c">Platters</button></div>
+  <div class="tabs rv" role="tablist" aria-label="Menu"><button role="tab" aria-selected="true" data-t="a">Cocktails</button><button role="tab" aria-selected="false" data-t="b">Plates</button><button role="tab" aria-selected="false" data-t="c">Platters</button><button role="tab" aria-selected="false" data-t="d">Bottles</button></div>
   <div class="ml rv" data-p="a" role="tabpanel"><div class="it"><div class="ph" role="img" aria-label="Photo of Old Fashioned coming soon"></div><b>Old Fashioned</b><span>Whiskey, bitters, orange peel</span><em class="pr">₦6,500</em></div><div class="it"><div class="ph" role="img" aria-label="Photo of Espresso Martini coming soon"></div><b>Espresso Martini</b><span>Vodka, coffee liqueur, fresh espresso</span><em class="pr">₦7,000</em></div><div class="it"><div class="ph" role="img" aria-label="Photo of Passion Fruit Spritz coming soon"></div><b>Passion Fruit Spritz</b><span>Sparkling wine, passion fruit, mint</span><em class="pr">₦6,000</em></div><div class="it"><div class="ph" role="img" aria-label="Photo of Zero-proof Garden coming soon"></div><b>Zero-proof Garden</b><span>Cucumber, lime, mint, soda</span><em class="pr">₦3,500</em></div></div>
   <div class="ml" data-p="b" role="tabpanel" hidden><div class="it"><div class="ph" role="img" aria-label="Photo of Grilled sea bass coming soon"></div><b>Grilled sea bass</b><span>Lemon butter, seasonal vegetables</span><em class="pr">₦18,500</em></div><div class="it"><div class="ph" role="img" aria-label="Photo of Lamb kofta coming soon"></div><b>Lamb kofta</b><span>Hummus, flatbread, pickled onions</span><em class="pr">₦16,000</em></div><div class="it"><div class="ph" role="img" aria-label="Photo of Creamy mushroom pasta coming soon"></div><b>Creamy mushroom pasta</b><span>Parmesan, herbs, garlic bread</span><em class="pr">₦14,000</em></div><div class="it"><div class="ph" role="img" aria-label="Photo of Suya-spiced chicken skewers coming soon"></div><b>Suya-spiced chicken skewers</b><span>Onions, tomato, yaji</span><em class="pr">₦12,000</em></div></div>
   <div class="ml" data-p="c" role="tabpanel" hidden><div class="it"><div class="ph" role="img" aria-label="Photo of Mixed grill platter coming soon"></div><b>Mixed grill platter</b><span>Beef, chicken, and sausage with dips</span><em class="pr">₦35,000</em></div><div class="it"><div class="ph" role="img" aria-label="Photo of Seafood sharing board coming soon"></div><b>Seafood sharing board</b><span>Prawns, calamari, and sauces</span><em class="pr">₦48,000</em></div><div class="it"><div class="ph" role="img" aria-label="Photo of Cheese and charcuterie coming soon"></div><b>Cheese and charcuterie</b><span>Cured meats, cheeses, fruit</span><em class="pr">₦38,000</em></div><div class="it"><div class="ph" role="img" aria-label="Photo of Small chops platter coming soon"></div><b>Small chops platter</b><span>A mix of party favourites</span><em class="pr">₦30,000</em></div></div>
-  <div class="row mrow"><a class="btn big" href="menu.html">See the full menu</a></div>
+  <div class="ml" data-p="d" role="tabpanel" hidden><div class="it"><div class="ph" role="img" aria-label="Photo of Table starter coming soon"></div><b>Table starter</b><span>One bottle, mixers and a sparkler</span><em class="pr">₦120,000</em></div><div class="it"><div class="ph" role="img" aria-label="Photo of Celebration package coming soon"></div><b>Celebration package</b><span>Champagne, sparklers and a reserved section</span><em class="pr">₦350,000</em></div><div class="it"><div class="ph" role="img" aria-label="Photo of Vodka table coming soon"></div><b>Vodka table</b><span>Premium vodka, mixers and a small chops platter</span><em class="pr">₦200,000</em></div><div class="it"><div class="ph" role="img" aria-label="Photo of Whiskey table coming soon"></div><b>Whiskey table</b><span>Premium whiskey, mixers and a mixed grill platter</span><em class="pr">₦260,000</em></div></div>
+  <div class="row mrow"><a class="btn big" href="menu.html">See the full menu</a><a class="btn o" href="menu.html#restaurant">Restaurant menu</a><a class="btn o" href="menu.html#lounge">Lounge menu</a></div>
   <p class="smp">Sample menu. Items and prices to be confirmed with the owner.</p>
 </div></section>
 
@@ -162,20 +177,20 @@ footer{margin-top:clamp(4rem,10vw,7rem);background:#0E0A1C;color:#F6E9D7;padding
 <section id="nights" class="pad"><div class="w">
   <h2 class="rv">Nights at <em>Nostalgia</em></h2>
   <div class="ev rv" style="margin-top:2.5rem">
-    <a href="reserve.html"><h3>Rooftop evenings</h3><p>Drinks, music, and the skyline.</p></a>
-    <a href="reserve.html"><h3>Celebrations</h3><p>Birthdays and milestones, with a table set for your group.</p></a>
-    <a href="reserve.html"><h3>Private bookings</h3><p>Hosting a larger group? Tell us the date and numbers.</p></a>
+    <a href="reserve.html?o=Rooftop%20evening"><h3>Rooftop evenings</h3><p>Drinks, music, and the skyline.</p></a>
+    <a href="reserve.html?o=Birthday%20or%20celebration"><h3>Celebrations</h3><p>Birthdays and milestones, with a table set for your group.</p></a>
+    <a href="reserve.html?o=Private%20booking"><h3>Private bookings</h3><p>Hosting a larger group? Tell us the date and numbers.</p></a>
   </div>
 </div></section>
 
 <section class="pad"><div class="w">
   <h2 class="rv">Good <em>company</em></h2>
   <div class="qs">
-    <blockquote class="rv"><q>The rooftop at sunset is something else. Great drinks and a relaxed crowd.</q><cite>Aisha, Lekki</cite></blockquote>
-    <blockquote class="rv"><q>We booked for a birthday and the team handled everything.</q><cite>Tobi, Ikoyi</cite></blockquote>
-    <blockquote class="rv"><q>Good food, good music, and the view makes the whole night.</q><cite>Dami, Victoria Island</cite></blockquote>
+    <blockquote class="rv"><q>The rooftop at sunset is something else. Great drinks and a relaxed crowd.</q><cite>Sample guest, Rooftop</cite></blockquote>
+    <blockquote class="rv"><q>We booked for a birthday and the team handled everything.</q><cite>Sample guest, Restaurant</cite></blockquote>
+    <blockquote class="rv"><q>Good food, good music, and the view makes the whole night.</q><cite>Sample guest, Lounge</cite></blockquote>
   </div>
-  <p class="smp">Sample reviews for this concept design.</p>
+  <p class="smp">Placeholder text for this concept design. These are not real guest reviews.</p>
 </div></section>
 
 <section id="reserve" class="pad"><div class="w mini rv">
@@ -184,9 +199,13 @@ footer{margin-top:clamp(4rem,10vw,7rem);background:#0E0A1C;color:#F6E9D7;padding
 </div></section>
 </main>
 
-<footer class="pad"><div class="w"><div class="wm" aria-hidden="true">Nostalgia</div><div class="fr"><span>88 Hakeem Dickson Road, Lekki Phase 1, Lagos</span><span><a href="https://www.instagram.com/nostalgia.lagos" target="_blank" rel="noopener">@nostalgia.lagos</a></span><span>Concept design. Not the official website.</span></div></div></footer>
+<a class="btn wab" id="wab" href="#" target="_blank" rel="noopener" hidden>Book on WhatsApp</a>
+<footer class="pad"><div class="w"><div class="wm" aria-hidden="true">Nostalgia</div><div class="fr"><span>88 Hakeem Dickson Road, Lekki Phase 1, Lagos</span><span><a href="https://www.instagram.com/nostalgia.lagos" target="_blank" rel="noopener">@nostalgia.lagos</a></span><span><a href="https://www.google.com/maps/search/?api=1&query=Nostalgia+Lagos+Lekki+Phase+1" target="_blank" rel="noopener">Directions</a></span><span>Concept design. Not the official website.</span></div></div></footer>
 
 <script>
+/* WhatsApp number for the Book on WhatsApp button. International format, no plus. */
+var CONTACT={wa:'2348026991557'};
+(function(){var b=document.getElementById('wab');if(!CONTACT.wa)return;b.href='https://wa.me/'+CONTACT.wa+'?text='+encodeURIComponent('Hello Nostalgia, I would like to book a table.');b.hidden=false})();
 var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 var hero=document.getElementById('hero');
 if(!reduce){for(var i=0;i<46;i++){var s=document.createElement('i');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*46+'%';s.style.animationDelay=(Math.random()*3)+'s';s.style.opacity=.4+Math.random()*.6;hero.insertBefore(s,hero.firstChild)}}

@@ -79,6 +79,7 @@ option{color:#1B1028}
     <div class="tools">
       <input type="search" id="q" placeholder="Search by name or phone" aria-label="Search bookings">
       <div class="chips" id="rng" role="group" aria-label="Date"><button class="chip" data-v="up" aria-pressed="true">Upcoming</button><button class="chip" data-v="today" aria-pressed="false">Today</button><button class="chip" data-v="past" aria-pressed="false">Past</button><button class="chip" data-v="all" aria-pressed="false">All</button></div>
+      <div class="chips" id="spc" role="group" aria-label="Space"><button class="chip" data-v="" aria-pressed="true">Both spaces</button><button class="chip" data-v="Restaurant" aria-pressed="false">Restaurant</button><button class="chip" data-v="Lounge" aria-pressed="false">Lounge</button></div>
       <div class="chips" id="sts" role="group" aria-label="Status"><button class="chip" data-v="" aria-pressed="true">Any status</button><button class="chip" data-v="New" aria-pressed="false">New</button><button class="chip" data-v="Confirmed" aria-pressed="false">Confirmed</button><button class="chip" data-v="Completed" aria-pressed="false">Completed</button><button class="chip" data-v="Cancelled" aria-pressed="false">Cancelled</button><button class="chip" data-v="Unpaid" aria-pressed="false">Unpaid attempts</button></div>
     </div>
     <div class="grid" id="list"></div>
@@ -92,7 +93,7 @@ var API='';   /* Optional: paste your Google Apps Script web app URL here. Or ju
 try{if(!API)API=localStorage.getItem('nl_api')||''}catch(e){}
 /* ==================== */
 var STATUSES=['New','Confirmed','Completed','Cancelled'];
-var rows=[],pw='',demo=false,range='up',status='',query='',timer,lastNew=-1;
+var rows=[],pw='',demo=false,range='up',status='',area='',query='',timer,lastNew=-1;
 var $=function(id){return document.getElementById(id)};
 function store(k,v){try{if(v===undefined)return sessionStorage.getItem(k);if(v===null)sessionStorage.removeItem(k);else sessionStorage.setItem(k,v)}catch(e){}return null}
 function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
@@ -126,7 +127,7 @@ function load(quiet){
   var p=demo?Promise.resolve({rows:demoRows()}):api({action:'list',pw:pw});
   return p.then(function(j){
     if(demo&&rows.length&&quiet){render();return}
-    rows=j.rows.map(function(r){if(demo){r.payment=r.id==='d8'?'Pending':'Paid';r.amount='5000';r.ref='NL-DEMO-'+r.id.toUpperCase();r.email='guest@example.com'}return r});
+    rows=j.rows.map(function(r){if(demo){r.payment=r.id==='d8'?'Pending':'Paid';r.amount='5000';r.ref='NL-DEMO-'+r.id.toUpperCase();r.email='guest@example.com';r.area=['d1','d3','d5','d8'].indexOf(r.id)>=0?'Lounge':'Restaurant'}return r});
     var nw=rows.filter(isNew).length;
     if(quiet&&lastNew>=0&&nw>lastNew)toast('New booking received');
     lastNew=nw;render();
@@ -140,6 +141,7 @@ function render(){
   var q=query.toLowerCase();
   var list=rows.filter(function(r){
     var pend=r.payment==='Pending';if(status==='Unpaid'){if(!pend)return false}else{if(pend)return false;if(status&&r.status!==status)return false}
+    if(area&&(r.area||'')!==area)return false;
     if(range==='up'&&!(r.date>=t))return false;
     if(range==='today'&&r.date!==t)return false;
     if(range==='past'&&!(r.date<t))return false;
@@ -155,7 +157,7 @@ function render(){
 function card(r){
   var msg='Hello '+r.name+', this is Nostalgia Lagos. We are confirming your table for '+fmtDate(r.date)+' at '+fmtTime(r.time)+' for '+r.guests+' guest'+(r.guests==='1'?'':'s')+'.';
   var wa='https://wa.me/'+waNum(r.phone)+'?text='+encodeURIComponent(msg);
-  return '<article class="c s-'+esc(r.status)+'" data-id="'+esc(r.id)+'"><div class="top"><div><h3>'+esc(r.name)+'</h3><p class="meta">'+esc(fmtDate(r.date))+' &middot; '+esc(fmtTime(r.time))+'</p></div><span class="g">'+esc(r.guests||'?')+' guest'+(r.guests==='1'?'':'s')+'</span></div>'
+  return '<article class="c s-'+esc(r.status)+'" data-id="'+esc(r.id)+'"><div class="top"><div><h3>'+esc(r.name)+'</h3><p class="meta">'+esc(fmtDate(r.date))+' &middot; '+esc(fmtTime(r.time))+(r.area?' &middot; '+esc(r.area):'')+'</p></div><span class="g">'+esc(r.guests||'?')+' guest'+(r.guests==='1'?'':'s')+'</span></div>'
   +(r.notes?'<p class="nt">'+esc(r.notes)+'</p>':'')+payLine(r)
   +'<div class="row"><a class="btn o sm" href="tel:'+esc(r.phone.replace(/[^0-9+]/g,''))+'">Call</a><a class="btn o sm" href="'+esc(wa)+'" target="_blank" rel="noopener">WhatsApp</a>'+(r.email?'<a class="btn o sm" href="mailto:'+esc(r.email)+'">Email</a>':'')+'</div>'
   +'<div class="ctl"><select data-f="status" aria-label="Status for '+esc(r.name)+'">'+STATUSES.map(function(s){return '<option'+(s===r.status?' selected':'')+'>'+s+'</option>'}).join('')+'</select>'
@@ -187,7 +189,7 @@ $('lo').addEventListener('click',function(){store('nl_pw',null);location.hash=''
 $('rfb').addEventListener('click',function(){load(false).then(function(){toast('Updated')}).catch(function(){toast('Could not refresh')})});
 $('q').addEventListener('input',function(){query=this.value;render()});
 function chips(id,set){$(id).addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;[].forEach.call(this.children,function(c){c.setAttribute('aria-pressed',c===b?'true':'false')});set(b.dataset.v);render()})}
-chips('rng',function(v){range=v});chips('sts',function(v){status=v});
+chips('rng',function(v){range=v});chips('spc',function(v){area=v});chips('sts',function(v){status=v});
 $('list').addEventListener('change',function(e){var c=e.target.closest('.c');if(c&&e.target.dataset.f==='status')save(c.dataset.id,'status',e.target.value)});
 $('list').addEventListener('focusout',function(e){var c=e.target.closest('.c');if(c&&e.target.dataset.f==='note'){var r=rows.filter(function(x){return x.id===c.dataset.id})[0];if(r&&r.note!==e.target.value)save(c.dataset.id,'note',e.target.value)}});
 if(!API){$('apiw').hidden=false}

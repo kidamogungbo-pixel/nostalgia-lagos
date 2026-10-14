@@ -106,6 +106,7 @@ footer{margin-top:clamp(4rem,10vw,7rem);background:#0E0A1C;color:#F6E9D7;padding
       <label for="n">Name</label><input id="n" name="name" required autocomplete="name">
       <label for="p">Phone number</label><input id="p" name="phone" type="tel" required autocomplete="tel">
       <label for="em">Email</label><input id="em" name="email" type="email" autocomplete="email">
+      <label for="a">Where would you like to sit?</label><select id="a" name="area"><option>Restaurant</option><option>Lounge</option></select>
       <div class="fg"><div><label for="d">Date</label><input id="d" name="date" type="date" required></div><div><label for="t">Time</label><select id="t" name="time"><option>6:00 pm</option><option>7:00 pm</option><option>8:00 pm</option><option>9:00 pm</option></select></div><div><label for="g">Guests</label><input id="g" name="guests" type="number" min="1" max="30" value="2"></div></div>
       <label for="m">Occasion or notes</label><textarea id="m" name="notes" rows="3"></textarea>
       <p class="paynote" id="paynote" hidden></p>
@@ -118,8 +119,9 @@ footer{margin-top:clamp(4rem,10vw,7rem);background:#0E0A1C;color:#F6E9D7;padding
 <footer class="pad"><div class="w"><div class="wm" aria-hidden="true">Nostalgia</div><div class="fr"><span>88 Hakeem Dickson Road, Lekki Phase 1, Lagos</span><span><a href="https://www.instagram.com/nostalgia.lagos" target="_blank" rel="noopener">@nostalgia.lagos</a></span><span>Concept design. Not the official website.</span></div></div></footer>
 <script>
 document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')});
+(function(){var o=new URLSearchParams(location.search).get('o'),m=document.getElementById('m'),d=document.getElementById('d');if(o&&m)m.value=o+': ';var a=new URLSearchParams(location.search).get('a'),sa=document.getElementById('a');if(a&&sa)sa.value=a;if(d)d.min=new Date().toISOString().slice(0,10)})();
 /* ===== BOOKING SETTINGS (edit these) ===== */
-var BOOKING={wa:'',key:'',sheet:'https://script.google.com/macros/s/AKfycby5sUHXb6kTOOmTBSXN2LERl06BulZ_ZI7PkBEgSerRRXLWkIq1XyNYmaBN3r-vFv1_/exec',paystackKey:'',policy:''};
+var BOOKING={wa:'2348026991557',key:'',sheet:'',paystackKey:'',policy:''};
 /* sheet: the Google Apps Script web app address. Bookings are saved in a Google Sheet and appear on the dashboard (admin.html). No monthly limit.
    paystackKey: your Paystack PUBLIC key (pk_test_... or pk_live_...). With it, guests pay a deposit when they book. The amount is set in the Apps Script (DEPOSIT).
    policy: optional line shown under the payment note, e.g. 'Deposits are refundable up to 24 hours before.'
@@ -199,7 +201,7 @@ if(BOOKING.wa){
   var wb=document.createElement('button');wb.type='button';wb.className='btn o';wb.textContent='Send on WhatsApp instead';
   wb.addEventListener('click',function(){
     if(!rf.reportValidity())return;var d=fields();
-    var t='Hello Nostalgia, I would like to reserve a table.\nName: '+d.name+'\nPhone: '+d.phone+'\nDate: '+d.date+'\nTime: '+d.time+'\nGuests: '+d.guests+(d.notes?'\nNotes: '+d.notes:'');
+    var t='Hello Nostalgia, I would like to reserve a table.\nName: '+d.name+'\nPhone: '+d.phone+'\nArea: '+d.area+'\nDate: '+d.date+'\nTime: '+d.time+'\nGuests: '+d.guests+(d.notes?'\nNotes: '+d.notes:'');
     window.open('https://wa.me/'+BOOKING.wa+'?text='+encodeURIComponent(t),'_blank','noopener');
   });
   rf.appendChild(wb);
